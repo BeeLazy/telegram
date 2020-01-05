@@ -11,6 +11,6 @@ A telegramclient to delete group messages. It is written in python and uses tele
 7. wget https://raw.githubusercontent.com/BeeLazy/telegram/master/DeleteGroupMessages.py
 8. python DeleteGroupMessages.py -ai YOUR_API_ID -ah YOUR_API_HASH -ci TELEGRAM_CHANNEL_ID
 
-You will get 2 deprecation warnings. Never mind those, they are just warnings. I will update the code after I have updated my linux installation to the new api
+You will get 2 deprecation warnings. Never mind those, they are just warnings. I will update the code after I have updated python on my linux installation.
 
 Point 1 to 7 only needs to be done once. Point 8 needs to be run each time you want to delete messages. You can use the up arrow in termux to get previous commands. Saves the headache of typing the api_id and api_hash more than once.
