@@ -2,7 +2,7 @@
 A telegramclient to delete group messages. It is written in python and uses telethon to do the heavy lifting
 
 # Android how to
-1. Create a telegram api user at https://my.telegram.org/apps, and write down your api_id and api_hash
+1. Create a telegram api user. Go to https://my.telegram.org/apps, and select create new application. Fill in whatever you want as 'App title' and 'Short name'. You can leave the other fields blank. Push the create application button. Write down your api_id and api_hash. You will need those later.
 2. On your android phone, install the termux application from Play
 3. Start termux
 4. pkg install python -y
