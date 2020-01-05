@@ -3,7 +3,7 @@ import sys
 import asyncio
 
 prog_help_text = "This program will delete the users messages from a telegram group older than a set age."
-prog_version = "1.0.0"
+prog_version = "1.0.1"
 
 # Initiate the parser
 parser = argparse.ArgumentParser(description = prog_help_text)
@@ -65,7 +65,7 @@ msg_other = 0
 print("Processing messages. This could take a while, depending on the amount of messages")
 with TelegramClient(my_username, api_id, api_hash) as client:
     for message in client.iter_messages(channel):
-        if msg_newer + msg_deleted + msg_other % 500 == 0 and msg_newer + msg_deleted + msg_other > 0:
+        if (msg_newer + msg_deleted + msg_other) % 500 == 0 and msg_newer + msg_deleted + msg_other > 0:
             print("Processed %dmessages" % (msg_newer + msg_deleted + msg_other))
         if message.from_id == my_id:
             if delete_delta_timestamp >= message.date:
