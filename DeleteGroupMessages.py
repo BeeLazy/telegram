@@ -54,7 +54,6 @@ channel_entity = client.get_entity(PeerChannel(channelid))
 access_hash = channel_entity.access_hash
 print("Your channel access_hash is %s" % access_hash)
 channel = InputPeerChannel(channelid, access_hash)
-entity = client.get_entity(channel)
 
 from datetime import datetime, timedelta, timezone
 delete_delta_timestamp = datetime.now(timezone.utc) - timedelta(minutes=delete_delta)
