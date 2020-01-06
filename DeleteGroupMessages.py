@@ -87,11 +87,11 @@ if client.is_connected() is True:
 print("Exiting program")
 del client
 with warnings.catch_warnings():
-    warnings.simplefilter("ignore")
+    warnings.simplefilter("ignore", category=DeprecationWarning)
     for task in asyncio.Task.all_tasks():
         task.cancel()
 loop = asyncio.get_event_loop()
 with warnings.catch_warnings():
-    warnings.simplefilter("ignore")
+    warnings.simplefilter("ignore", category=DeprecationWarning)
     loop.run_until_complete(asyncio.wait(asyncio.Task.all_tasks(loop)))
 loop.close()
