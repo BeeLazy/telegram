@@ -1,9 +1,10 @@
 import argparse
 import sys
 import asyncio
+import warnings
 
 prog_help_text = "This program will delete the users messages from a telegram group older than a set age."
-prog_version = "1.0.1"
+prog_version = "1.0.2"
 
 # Initiate the parser
 parser = argparse.ArgumentParser(description = prog_help_text)
@@ -85,8 +86,12 @@ if client.is_connected() is True:
 
 print("Exiting program")
 del client
-for task in asyncio.Task.all_tasks():
-    task.cancel()
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    for task in asyncio.Task.all_tasks():
+        task.cancel()
 loop = asyncio.get_event_loop()
-loop.run_until_complete(asyncio.wait(asyncio.Task.all_tasks(loop)))
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    loop.run_until_complete(asyncio.wait(asyncio.Task.all_tasks(loop)))
 loop.close()
